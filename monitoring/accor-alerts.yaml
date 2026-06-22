@@ -1,0 +1,77 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+
+metadata:
+  name: accor-redemption-alerts
+  namespace: monitoring
+
+  labels:
+    release: monitoring
+
+spec:
+
+  groups:
+
+  - name: accor-redemption.rules
+
+    rules:
+
+
+    - alert: RedemptionPodDown
+
+      expr: |
+        kube_deployment_status_replicas_available{
+          namespace="redemption",
+          deployment="redemption-service"
+        } < 3
+
+      for: 5m
+
+      labels:
+        severity: critical
+
+      annotations:
+
+        summary: "Redemption service pod availability issue"
+
+        description: "Less than 3 redemption pods are available."
+
+
+
+    - alert: RedemptionHighCPU
+
+      expr: |
+        sum(rate(container_cpu_usage_seconds_total{
+          namespace="redemption"
+        }[5m])) > 0.7
+
+      for: 5m
+
+      labels:
+        severity: warning
+
+      annotations:
+
+        summary: "High CPU usage on redemption service"
+
+        description: "CPU usage is above 70% for 5 minutes."
+
+
+
+    - alert: RedemptionContainerRestart
+
+      expr: |
+        increase(kube_pod_container_status_restarts_total{
+          namespace="redemption"
+        }[10m]) > 3
+
+      for: 5m
+
+      labels:
+        severity: warning
+
+      annotations:
+
+        summary: "Redemption container restarting"
+
+        description: "Container restarted more than 3 times in 10 minutes."

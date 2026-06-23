@@ -269,6 +269,38 @@ Collects:
 
 Implemented dashboards for:
 
+# Implementation Evidence
+
+## Kubernetes Deployment
+
+![Kubernetes Pods](docs/screenshots/Kuubernetes%20pods%20ss.PNG)
+
+
+## Monitoring Dashboards
+
+### CPU Usage
+
+![CPU Dashboard](docs/screenshots/Rememption%20CPU%20Usage%20Dashboard.PNG)
+
+
+### Memory Usage
+
+![Memory Dashboard](docs/screenshots/Redemption%20Memory%20usage%20Dashboad.PNG)
+
+
+### Service Availability
+
+![Availability Dashboard](docs/screenshots/Redemption%20Service%20Available%20Pods%20Dashboard.PNG)
+
+
+### Container Restarts
+
+![Restart Dashboard](docs/screenshots/Container%20restart%20Dashboard.PNG)
+
+
+## Kubernetes Autoscaling
+
+![HPA Dashboard](docs/screenshots/HPA%20Current%20Replicas%20Dashboard.PNG)
 ### Pod Availability
 
 Monitors:

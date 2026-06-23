@@ -18,6 +18,9 @@ This project demonstrates a production-style DevOps implementation covering:
 
 ![Accor Redemption Platform Architecture](docs/architecture.png)
 
+## Design Document
+
+[Accor Design Document](docs/Accor-Design-Document.pdf)
 ---
 
 # Project Overview
